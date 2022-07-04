@@ -30,7 +30,7 @@ jobs:
           path: 'MS'
 
       - name: Build Order Service
-        working-directory: /home/runner/work/obligatorioDevOps-infra/MS
+        working-directory: /home/runner/work/obligatorioDevOps-infra/obligatorioDevOps-infra/MS
         run: mvn --batch-mode --update-snapshots package       
   
 # TEST JOBS #
@@ -52,7 +52,7 @@ jobs:
           distribution: 'adopt'
   
       - name: Test Order Service
-        working-directory: /home/runner/work/obligatorioDevOps-infra/MS
+        working-directory: /home/runner/work/obligatorioDevOps-infra/obligatorioDevOps-infra/MS
         run: mvn -B test --file pom.xml
 
 # SONARCLOUD JOB # 
@@ -86,7 +86,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        working-directory: /home/runner/work/obligatorioDevOps-infra/MS/Microservicios/orders-service-example
+        working-directory: /home/runner/work/obligatorioDevOps-infra/obligatorioDevOps-infra/MS/orders-service-example
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=proyectodevopsort_obligatorioDevOps
         
 #GCP Artifact Registry #
@@ -123,7 +123,7 @@ jobs:
 
       - name: 'Docker build'
         run:
-          docker build --tag "$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:$GITHUB_SHA" /home/runner/work/obligatorioDevOps-infra/MS/Microservicios/orders-service-example
+          docker build --tag "$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:$GITHUB_SHA" /home/runner/work/obligatorioDevOps-infra/obligatorioDevOps-infra/MS/orders-service-example
       
       - name: 'Docker push'
         run: docker push "$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:$GITHUB_SHA"
