@@ -1,10 +1,9 @@
 name: MicroServices Actions
 
 on:
- workflow_dispatch:
   repository_dispatch:
-      types:
-        - webhook
+    types:
+      - webhook
       
 jobs:
   
