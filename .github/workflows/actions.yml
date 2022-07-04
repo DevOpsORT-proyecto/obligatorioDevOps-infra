@@ -88,7 +88,7 @@ jobs:
           restore-keys: ${{ runner.os }}-sonar
 
       - name: Checkout MicroServices
-        uses: actions/checkout@v3
+        uses: actions/checkout@master
         with:
           repository: proyectodevopsort/orders-service
           path: 'MS'
