@@ -103,9 +103,9 @@ jobs:
       - name: Build and analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-          SONAR_TOKEN: 73550b305b42a4de8a7794be189322220d1f8745
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         working-directory: /home/runner/work/obligatorioDevOps-infra/obligatorioDevOps-infra/MS
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=proyectodevopsort_obligatorioDevOps
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=proyectodevopsort_orders-service
         
 #GCP Artifact Registry #
 
