@@ -74,8 +74,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-
+          fetch-depth: 0
+          
       - name: Cache SonarCloud packages
         uses: actions/cache@v1
         with:
@@ -111,7 +111,7 @@ jobs:
       PROJECT_ID: 'proyectodevopsort'
       GAR_LOCATION: 'southamerica-east1'
       REPOSITORY: 'proyecto-devops-ort'
-      IMAGE: '${{ inputs.service-name }}-microservice'
+      IMAGE: ${{ inputs.service-name }}-microservice
       
     steps:
       
