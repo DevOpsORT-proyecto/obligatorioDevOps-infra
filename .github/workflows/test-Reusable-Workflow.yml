@@ -33,5 +33,4 @@ jobs:
           distribution: 'adopt'
 
       - name: Build ${{ inputs.service-name }} Service
-        working-directory: ./
         run: mvn --batch-mode --update-snapshots package       
