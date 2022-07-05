@@ -111,7 +111,7 @@ jobs:
       PROJECT_ID: 'proyectodevopsort'
       GAR_LOCATION: 'southamerica-east1'
       REPOSITORY: 'proyecto-devops-ort'
-      IMAGE: lowercase('${{ inputs.service-name}}-microservice')
+      IMAGE: lowercase(${{ inputs.service-name}}-microservice)
       
     steps:
       
