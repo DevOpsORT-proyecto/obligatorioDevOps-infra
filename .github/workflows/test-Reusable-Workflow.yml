@@ -18,7 +18,7 @@ jobs:
 
   build_orders:
   
-    name: Build $inputs.service-name Service
+    name: format('Build {0} Service', $inputs.service-name)  
   
     runs-on: ubuntu-latest
     
@@ -32,6 +32,6 @@ jobs:
           java-version: '8'
           distribution: 'adopt'
 
-      - name: Build $inputs.service-name Service
-        working-directory: /home/runner/work/$inputs.service-folder
+      - name: format('Build {0} Service', $inputs.service-name)  
+        working-directory: format('/home/runner/work/{0}', $inputs.service-folder)
         run: mvn --batch-mode --update-snapshots package       
