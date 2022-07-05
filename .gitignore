@@ -52,6 +52,9 @@ terraform.rc
 .idea/**/tasks.xml
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
+.idea/**/encodings.xml
+.idea/**/indexLayout.xml
+.idea/**/vcs.xml
 .idea/**/shelf
 
 # AWS User-specific
