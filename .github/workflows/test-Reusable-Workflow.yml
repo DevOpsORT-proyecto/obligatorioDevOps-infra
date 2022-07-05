@@ -10,8 +10,9 @@ on:
         required: true
         type: string
     secrets:
-      sonar-token:
+      SONAR_TOKEN:
         required: true
+
 
 jobs:
 
