@@ -115,6 +115,9 @@ jobs:
       
     steps:
       
+      - name: Set env
+        run: echo ::set-env name=workspace::$GITHUB_WORKSPACE
+
       - name: Checkout
         uses: actions/checkout@v3
 
@@ -135,7 +138,7 @@ jobs:
 
       - name: 'Docker build'
         run:
-          docker build --tag "$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:$GITHUB_SHA" ${{ env.GITHUB_WORKSPACE }}
+          docker build --tag "$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:$GITHUB_SHA" ${{ env.workspace }}
       
       - name: 'Docker push'
         run: docker push "$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:$GITHUB_SHA"
