@@ -5,7 +5,7 @@ metadata:
   labels:
     app: products
 spec:
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       name: products-pod

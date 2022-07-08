@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service 
 metadata:
-  name: orders-service
+  name: products-service
 spec:
   type: NodePort
   ports:
     - targetPort: 8080
       port: 8080
-      nodePort: 30001
+      nodePort: 30003
   selector:
-    app: orders
+    app: products

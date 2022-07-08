@@ -5,7 +5,7 @@ metadata:
   labels:
     app: shipping
 spec:
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       name: shipping-pod
