@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orders-deployment
+  labels:
+    app: orders
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: orders-pod
+      labels:
+        app: orders
+    spec:
+      containers:
+        - name: orders
+          image: southamerica-east1-docker.pkg.dev/proyectodevopsort/proyecto-devops-ort/orders-microservice:4742738fef9a2cdd306f72f01d66f42fe8b1300a
+          env:
+            - name: paymentsUrl
+              value: paymentsUrl
+            - name: shippingUrl
+              value: shippingUrl
+            - name: productsUrl
+              value: productsUrl
+          ports:
+            - containerPort: 8080
+  selector:
+    matchLabels:
+      app: orders

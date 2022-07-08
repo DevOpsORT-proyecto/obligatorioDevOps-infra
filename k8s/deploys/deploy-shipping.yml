@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shipping-deployment
+  labels:
+    app: shipping
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: shipping-pod
+      labels:
+        app: shipping
+    spec:
+      containers:
+        - name: shipping
+          image: southamerica-east1-docker.pkg.dev/proyectodevopsort/proyecto-devops-ort/shipping-microservice:c908a9c9d1696365ce6dd089c1e1fed2482ea35e
+          ports:
+            - containerPort: 8080
+  selector:
+    matchLabels:
+      app: shipping
