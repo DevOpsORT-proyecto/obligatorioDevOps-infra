@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payments-deployment
+  labels:
+    app: payments
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: payments-pod
+      labels:
+        app: payments
+    spec:
+      containers:
+        - name: payments
+          image: southamerica-east1-docker.pkg.dev/proyectodevopsort/proyecto-devops-ort/payments-microservice:0138c2d21635a5037e17c9abbd73990792af5d72
+          ports:
+            - containerPort: 8080
+  selector:
+    matchLabels:
+      app: payments
