@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/DevOpsORT-proyecto/obligatorioDevOps-infra
     targetRevision: HEAD
-    path: k8s/argo
+    path: k8s
 
   destination: 
     server: https://kubernetes.default.svc
