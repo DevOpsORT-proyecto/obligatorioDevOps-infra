@@ -27,4 +27,12 @@ resources:
   - ./nginx/service/nodeport.yaml
 # - ./nginx/service/loadbalancer.yaml esto para GCP.. ver despues
 
+# Ingresses List
+
+  - ./ingresses/service-orders.yml
+  - ./ingresses/service-payments.yml
+  - ./ingresses/service-shipping.yml
+  - ./ingresses/service-products.yml
+
+
 
