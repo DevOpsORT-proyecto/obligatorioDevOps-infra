@@ -29,10 +29,10 @@ resources:
 
 # Ingresses List
 
-  - ./ingresses/service-orders.yml
-  - ./ingresses/service-payments.yml
-  - ./ingresses/service-shipping.yml
-  - ./ingresses/service-products.yml
+  - ./ingresses/ingress-orders.yml
+  - ./ingresses/ingress-payments.yml
+  - ./ingresses/ingress-shipping.yml
+  - ./ingresses/ingress-products.yml
 
 
 
