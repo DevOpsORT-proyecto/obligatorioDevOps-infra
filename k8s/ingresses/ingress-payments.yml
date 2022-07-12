@@ -3,6 +3,10 @@ kind: Ingress
 metadata:
   name: payments-ingress
 spec:
+  tls:
+  - hosts:
+    - payments.proyectodevops.local
+    secretName: default-server-secret
   rules:
   - host: payments.proyectodevops.local
     http:

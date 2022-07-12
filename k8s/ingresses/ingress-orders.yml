@@ -3,6 +3,10 @@ kind: Ingress
 metadata:
   name: orders-ingress
 spec:
+  tls:
+  - hosts:
+    - orders.proyectodevops.local
+    secretName: default-server-secret
   rules:
   - host: orders.proyectodevops.local
     http:
