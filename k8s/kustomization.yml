@@ -17,8 +17,10 @@ resources:
 # NGINX
   - ./nginx/common/ns-and-sa.yaml
   - ./nginx/rbac/rbac.yaml
-  - ./nginx/rbac/ap-rbac.yaml
-  - ./nginx/rbac/apdos-rbac.yaml
-
+  - ./nginx/common/default-server-secret.yaml
+  - ./nginx/common/ingress-class.yaml
+  - ./nginx/deployment/nginx-ingress.yaml
+  - ./nginx/service/nodeport.yaml
+# - ./nginx/service/loadbalancer.yaml esto para GCP.. ver despues
 
 
