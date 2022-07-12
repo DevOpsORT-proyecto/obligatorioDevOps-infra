@@ -16,4 +16,4 @@ spec:
               service:
                 name: orders-service
                 port:
-                  number: 80
+                  number: 30001
