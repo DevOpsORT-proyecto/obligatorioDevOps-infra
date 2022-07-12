@@ -19,6 +19,10 @@ resources:
   - ./nginx/rbac/rbac.yaml
   - ./nginx/common/default-server-secret.yaml
   - ./nginx/common/ingress-class.yaml
+  - ./nginx/common/crds/k8s.nginx.org_virtualservers.yaml
+  - ./nginx/common/crds/k8s.nginx.org_virtualserverroutes.yaml
+  - ./nginx/common/crds/k8s.nginx.org_transportservers.yaml
+  - ./nginx/common/crds/k8s.nginx.org_policies.yaml
   - ./nginx/deployment/nginx-ingress.yaml
   - ./nginx/service/nodeport.yaml
 # - ./nginx/service/loadbalancer.yaml esto para GCP.. ver despues
