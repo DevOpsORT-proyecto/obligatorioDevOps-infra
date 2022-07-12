@@ -15,8 +15,10 @@ resources:
   - ./services/service-products.yml
 
 # NGINX
+  - ./nginx/common/ns-and-sa.yaml
+  - ./nginx/rbac/rbac.yaml
+  - ./nginx/rbac/ap-rbac.yaml
+  - ./nginx/rbac/apdos-rbac.yaml
 
-  - ./ingresses/ingress-nginx.yml
-  - ./ingresses/ingress-orders.yml
 
 
