@@ -17,5 +17,6 @@ resources:
 # NGINX
 
   - ./ingresses/ingress-nginx.yml
+  - ./ingresses/ingress-orders.yml
 
 
