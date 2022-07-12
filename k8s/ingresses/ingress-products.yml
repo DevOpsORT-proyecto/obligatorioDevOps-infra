@@ -3,6 +3,10 @@ kind: Ingress
 metadata:
   name: products-ingress
 spec:
+  tls:
+  - hosts:
+    - products.proyectodevops.local
+    secretName: default-server-secret
   rules:
   - host: products.proyectodevops.local
     http:
@@ -13,5 +17,5 @@ spec:
           service:
             name: products-service
             port:
-              number: 80
+              number: 30003
    

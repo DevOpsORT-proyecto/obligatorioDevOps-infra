@@ -3,6 +3,10 @@ kind: Ingress
 metadata:
   name: shipping-ingress
 spec:
+  tls:
+  - hosts:
+    - shipping.proyectodevops.local
+    secretName: default-server-secret
   rules:
   - host: shipping.proyectodevops.local
     http:
@@ -13,5 +17,5 @@ spec:
           service:
             name: shipping-service
             port:
-              number: 80
+              number: 30004
    
