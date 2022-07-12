@@ -7,9 +7,15 @@ resources:
   - ./deploys/deploy-payments.yml
   - ./deploys/deploy-shipping.yml
   - ./deploys/deploy-products.yml
-  
+
 # Services List
   - ./services/service-orders.yml
   - ./services/service-payments.yml
   - ./services/service-shipping.yml
   - ./services/service-products.yml
+
+# NGINX
+
+  - ./ingresses/ingress-nginx.yml
+
+
