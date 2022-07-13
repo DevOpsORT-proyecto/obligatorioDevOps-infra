@@ -19,27 +19,27 @@ spec:
           service:
             name: orders-service
             port:
-              number: 80
+              number: 30001
       - path: /payments
         pathType: Prefix
         backend:
           service:
             name: payments-service
             port:
-              number: 80
+              number: 30002
       - path: /products
         pathType: Prefix
         backend:
           service:
             name: products-service
             port:
-              number: 80
+              number: 30003
       - path: /shipping
         pathType: Prefix
         backend:
           service:
             name: shipping-service
             port:
-              number: 80
+              number: 30004
    
    
