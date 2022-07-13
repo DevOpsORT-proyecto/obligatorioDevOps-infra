@@ -29,6 +29,7 @@ resources:
 
 # Ingres
   - ./ingresses/ingress-orders.yml
-
-
+  - ./ingresses/ingress-payments.yml
+  - ./ingresses/ingress-products.yml
+  - ./ingresses/ingress-shipping.yml
 
