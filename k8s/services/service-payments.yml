@@ -4,7 +4,7 @@ metadata:
   name: payments-service
 spec:
   selector:
-    app.kubernetes.io/name: payments
+    app: payments
   ports:
     - protocol: TCP
       port: 80

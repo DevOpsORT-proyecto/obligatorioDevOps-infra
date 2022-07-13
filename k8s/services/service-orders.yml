@@ -4,7 +4,7 @@ metadata:
   name: orders-service
 spec:
   selector:
-    app.kubernetes.io/name: orders
+    app: orders
   ports:
     - protocol: TCP
       port: 80
