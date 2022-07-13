@@ -3,10 +3,9 @@ kind: Service
 metadata:
   name: products-service
 spec:
-  type: NodePort
-  ports:
-    - targetPort: 8080
-      port: 8080
-      nodePort: 80
   selector:
-    app: products
+    app.kubernetes.io/name: products
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080

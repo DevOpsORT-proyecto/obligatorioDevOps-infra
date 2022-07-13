@@ -3,10 +3,9 @@ kind: Service
 metadata:
   name: orders-service
 spec:
-  type: NodePort
-  ports:
-    - targetPort: 8080
-      port: 8080
-      nodePort: 80
   selector:
-    app: orders
+    app.kubernetes.io/name: orders
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
