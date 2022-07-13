@@ -3,9 +3,9 @@ kind: Service
 metadata:
   name: payments-service
 spec:
+  type: ClusterIP
   selector:
     app: payments
   ports:
-    - protocol: TCP
-      port: 80
+    - port: 80
       targetPort: 8080
