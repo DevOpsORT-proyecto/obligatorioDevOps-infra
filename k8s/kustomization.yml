@@ -28,7 +28,7 @@ resources:
 # - ./nginx/service/loadbalancer.yaml esto para GCP.. ver despues
 
 # Ingres
-  - ./ingresses/ingress.yml
+  - ./ingresses/ingress-orders.yml
 
 
 
