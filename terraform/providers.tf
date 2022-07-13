@@ -18,3 +18,4 @@ provider "google" {
   region      = "southamerica-east1"
   credentials = "gcpKey.json"
 }
+
