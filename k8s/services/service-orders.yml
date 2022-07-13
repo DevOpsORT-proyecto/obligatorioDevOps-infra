@@ -3,9 +3,9 @@ kind: Service
 metadata:
   name: orders-service
 spec:
-  type: ClusterIP
   selector:
     app: orders
   ports:
     - port: 80
       targetPort: 8080
+  type: LoadBalancer

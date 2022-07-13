@@ -3,9 +3,9 @@ kind: Service
 metadata:
   name: shipping-service
 spec:
-  type: ClusterIP
   selector:
     app: shipping
   ports:
     - port: 80
       targetPort: 8080
+  type: LoadBalancer
