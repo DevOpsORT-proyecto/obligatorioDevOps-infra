@@ -3,10 +3,9 @@ kind: Service
 metadata:
   name: shipping-service
 spec:
-  type: NodePort
-  ports:
-    - targetPort: 8080
-      port: 8080
-      nodePort: 80
   selector:
-    app: shipping
+    app.kubernetes.io/name: shipping
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080

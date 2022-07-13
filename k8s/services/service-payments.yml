@@ -3,10 +3,9 @@ kind: Service
 metadata:
   name: payments-service
 spec:
-  type: NodePort
-  ports:
-    - targetPort: 8080
-      port: 8080
-      nodePort: 80
   selector:
-    app: payments
+    app.kubernetes.io/name: payments
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
