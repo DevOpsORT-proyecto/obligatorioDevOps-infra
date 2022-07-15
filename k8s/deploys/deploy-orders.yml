@@ -17,11 +17,11 @@ spec:
           image: southamerica-east1-docker.pkg.dev/proyectodevopsort/proyecto-devops-ort/orders-microservice:4742738fef9a2cdd306f72f01d66f42fe8b1300a
           env:
             - name: paymentsUrl
-              value: http://35.247.197.104:80
+              value: http://35.247.197.104/payments
             - name: shippingUrl
-              value: http://35.199.106.194:80
+              value: http://35.199.106.194/shipping
             - name: productsUrl
-              value: http://34.151.225.120:80
+              value: http://34.151.225.120/products
           ports:
             - containerPort: 8080
   selector:
