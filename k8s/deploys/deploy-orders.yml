@@ -21,7 +21,7 @@ spec:
             - name: shippingUrl
               value: http://35.199.106.194:80
             - name: productsUrl
-              value: http://35.1999.106.194:80
+              value: http://35.199.106.194:80
           ports:
             - containerPort: 8080
   selector:
