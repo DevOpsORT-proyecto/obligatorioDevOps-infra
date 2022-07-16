@@ -136,8 +136,8 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@github.com
 
-          sed -i 's/image:.*/image: ${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.IMAGE }}:${{ github.sha }}/' k8s/deploys/deploy-${{ inputs.service-name }}.yml
-          
+          sed -i 's/${{ inputs.service-name }}-microservice:.*/orders-microservice:${{ github.sha }}/' k8s/deploys/deploy-${{ inputs.service-name }}.yml
+
           git add .
           git commit -m "automatic image tag update"
           git push origin develop
