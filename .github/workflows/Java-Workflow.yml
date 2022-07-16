@@ -115,3 +115,5 @@ jobs:
       - name: 'Docker push'
         run: docker push "$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:$GITHUB_SHA"
      
+      - name: 'Docker push latest'
+        run: docker push "$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:latest"
