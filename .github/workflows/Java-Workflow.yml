@@ -81,7 +81,7 @@ jobs:
   gcp_artifact:
     name: GCP Artifact Registry - ${{ inputs.service-name }}
     runs-on: ubuntu-latest
-    needs: [test, sonarcloud]
+    needs: [sonarcloud]
     env:
       PROJECT_ID: 'proyectodevopsort'
       GAR_LOCATION: 'southamerica-east1'
