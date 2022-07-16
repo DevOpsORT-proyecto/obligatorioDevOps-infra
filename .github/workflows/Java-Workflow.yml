@@ -135,10 +135,11 @@ jobs:
 
       - name: 'Update Tag and Commit'
         run: |
+          git config user.name ECesco
+          git config user.email enzo.cesco@gmail.com
 
           sed -i 's/${{ inputs.service-name }}-microservice:.*/orders-microservice:${{ github.sha }}/' k8s/deploys/deploy-${{ inputs.service-name }}.yml
 
-          git config user.email enzo.cesco@github.com
           git add .
           git commit -m "automatic image tag update"
           git push https://${{ secrets.ACCESS_TOKEN }}@github.com/DevOpsORT-proyecto/obligatorioDevOps-infra.git develop
