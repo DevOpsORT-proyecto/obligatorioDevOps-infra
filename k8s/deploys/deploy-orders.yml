@@ -22,6 +22,7 @@ spec:
               value: shipping-service
             - name: productsUrl
               value: products-service
+
           ports:
             - containerPort: 8080
   selector:
