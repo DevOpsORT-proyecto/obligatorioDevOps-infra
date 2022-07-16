@@ -14,14 +14,14 @@ spec:
     spec:
       containers:
         - name: orders
-          image: southamerica-east1-docker.pkg.dev/proyectodevopsort/proyecto-devops-ort/orders-microservice:4742738fef9a2cdd306f72f01d66f42fe8b1300a
+          image: southamerica-east1-docker.pkg.dev/proyectodevopsort/proyecto-devops-ort/orders-microservice:latest
           env:
             - name: paymentsUrl
-              value: paymentsUrl
+              value: payments-service
             - name: shippingUrl
-              value: shippingUrl
+              value: shipping-service
             - name: productsUrl
-              value: productsUrl
+              value: products-service
           ports:
             - containerPort: 8080
   selector:
