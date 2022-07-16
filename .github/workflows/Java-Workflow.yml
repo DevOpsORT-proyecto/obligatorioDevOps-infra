@@ -144,6 +144,8 @@ jobs:
 
       - name: 'Push Change to Repo'
         run: |
+          git config --global user.email "enzo.cesco@gmail.com"
+          git config --global user.name "ECesco"
           git add .
           git commit -m "automatic image tag update"
           git push git@github.com:DevOpsORT-proyecto/obligatorioDevOps-infra.git develop
