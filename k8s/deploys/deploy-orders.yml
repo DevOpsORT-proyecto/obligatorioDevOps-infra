@@ -17,11 +17,11 @@ spec:
           image: southamerica-east1-docker.pkg.dev/proyectodevopsort/proyecto-devops-ort/orders-microservice:latest
           env:
             - name: paymentsUrl
-              value: $(PAYMENTS_SERVICE_SERVICE_HOST)
+              value: http://$(PAYMENTS_SERVICE_SERVICE_HOST)/payments
             - name: shippingUrl
-              value: $(SHIPPING_SERVICE_SERVICE_HOST)
+              value: http://$(SHIPPING_SERVICE_SERVICE_HOST)/shipping
             - name: productsUrl
-              value: $(PRODUCTS_SERVICE_SERVICE_HOST)
+              value: http://"$(PRODUCTS_SERVICE_SERVICE_HOST)/products"
 
           ports:
             - containerPort: 8080
