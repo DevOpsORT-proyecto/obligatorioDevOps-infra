@@ -14,6 +14,12 @@ on:
         required: true
       GCP_SERVICE_ACCOUNT:
         required: true
+  
+    env:
+      PROJECT_ID: 'proyectodevopsort'
+      GAR_LOCATION: 'southamerica-east1'
+      REPOSITORY: 'proyecto-devops-ort'
+      IMAGE: ${{ inputs.service-name }}-microservice
 
 
 jobs:
@@ -82,12 +88,6 @@ jobs:
     name: GCP Artifact Registry - ${{ inputs.service-name }}
     runs-on: ubuntu-latest
     needs: [sonarcloud]
-    env:
-      PROJECT_ID: 'proyectodevopsort'
-      GAR_LOCATION: 'southamerica-east1'
-      REPOSITORY: 'proyecto-devops-ort'
-      IMAGE: ${{ inputs.service-name }}-microservice
-      
     steps:
       
       - name: Checkout
@@ -135,7 +135,6 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@github.com
 
-          echo "NEW_IMAGE_NAME= >> $GITHUB_ENV
           sed -i '17s/.*/       ${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.IMAGE }}:$GITHUB_SHA/' k8s/deploys/deploy-${{ inputs.service-name }}.yml
           
           git add .
