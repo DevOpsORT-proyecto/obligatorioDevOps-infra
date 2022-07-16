@@ -14,13 +14,12 @@ on:
         required: true
       GCP_SERVICE_ACCOUNT:
         required: true
-  
-    env:
-      PROJECT_ID: 'proyectodevopsort'
-      GAR_LOCATION: 'southamerica-east1'
-      REPOSITORY: 'proyecto-devops-ort'
-      IMAGE: ${{ inputs.service-name }}-microservice
-
+        
+env:
+  PROJECT_ID: 'proyectodevopsort'
+  GAR_LOCATION: 'southamerica-east1'
+  REPOSITORY: 'proyecto-devops-ort'
+  IMAGE: ${{ inputs.service-name }}-microservice
 
 jobs:
 
@@ -88,6 +87,8 @@ jobs:
     name: GCP Artifact Registry - ${{ inputs.service-name }}
     runs-on: ubuntu-latest
     needs: [sonarcloud]
+
+      
     steps:
       
       - name: Checkout
