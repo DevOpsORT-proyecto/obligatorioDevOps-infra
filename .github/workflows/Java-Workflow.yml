@@ -119,19 +119,20 @@ jobs:
 
   update_image_tags:
 
-    name: GCP Artifact Registry - ${{ inputs.service-name }}
+    name: Update Argo Deploy Image Tag
 
     runs-on: ubuntu-latest
 
     steps:
 
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
         with:
           repository: DevOpsORT-proyecto/obligatorioDevOps-infra
 
       - name: 'Update Tag and Commit'
         run: |
+          git config --global user.name "enzo.cesco@gmail.com"
           echo "NEW_IMAGE_NAME=${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.IMAGE }}:${{ env.GITHUB_SHA }}" >> $GITHUB_ENV
           sed -i '17s/.*/       ${{ env.NEW_IMAGE_NAME }}/' k8s/deploys/deploy-${{ inputs.service-name }}.yml
           git add .
