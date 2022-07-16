@@ -14,6 +14,8 @@ on:
         required: true
       GCP_SERVICE_ACCOUNT:
         required: true
+      ACCESS_TOKEN:
+        required: true
 
 env:
   PROJECT_ID: 'proyectodevopsort'
@@ -140,6 +142,6 @@ jobs:
 
           git add .
           git commit -m "automatic image tag update"
-          git push origin develop
+          git push https://${{ secrets.ACCESS_TOKEN }}@github.com/DevOpsORT-proyecto/obligatorioDevOps-infra.git develop
 
           
