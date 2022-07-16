@@ -137,11 +137,13 @@ jobs:
         run: |
           git config --global user.name ECesco
           git config --global user.email enzo.cesco@gmail.com
-
+          
+          eval `ssh-agent`
+          echo ${{ secrets.ACCESS_TOKEN }} > key.ssh
+          ssh-add key.ssh
+          
           sed -i 's/${{ inputs.service-name }}-microservice:.*/orders-microservice:${{ github.sha }}/' k8s/deploys/deploy-${{ inputs.service-name }}.yml
 
           git add .
           git commit -m "automatic image tag update"
-          git push https://${{ secrets.ACCESS_TOKEN }}@github.com/DevOpsORT-proyecto/obligatorioDevOps-infra.git develop
-
-          
+          git push git@github.com:DevOpsORT-proyecto/obligatorioDevOps-infra.git develop
