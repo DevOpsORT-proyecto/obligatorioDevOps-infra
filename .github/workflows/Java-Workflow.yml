@@ -125,6 +125,7 @@ jobs:
     name: Update Argo Deploy Image Tag
 
     runs-on: ubuntu-latest
+    needs: [gcp_artifact]
 
     steps:
 
@@ -133,15 +134,19 @@ jobs:
         with:
           repository: DevOpsORT-proyecto/obligatorioDevOps-infra
 
-      - name: 'Update Tag and Commit'
+      - name: 'Update TAG in Deploy File'
         run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-
           sed -i 's/${{ inputs.service-name }}-microservice:.*/orders-microservice:${{ github.sha }}/' k8s/deploys/deploy-${{ inputs.service-name }}.yml
 
+      - name: 'Start SSH'
+        uses: webfactory/ssh-agent@v0.5.4
+        with:
+          ssh-private-key: ${{ secrets.ACCESS_TOKEN }}
+
+      - name: 'Push Change to Repo'
+        run: |
+          git config --global user.email "enzo.cesco@gmail.com"
+          git config --global user.name "ECesco"
           git add .
           git commit -m "automatic image tag update"
-          git push https://${{ secrets.ACCESS_TOKEN }}@github.com/DevOpsORT-proyecto/obligatorioDevOps-infra.git develop
-
-          
+          git push git@github.com:DevOpsORT-proyecto/obligatorioDevOps-infra.git develop
