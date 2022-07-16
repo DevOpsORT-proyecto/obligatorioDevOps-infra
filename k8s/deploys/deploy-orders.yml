@@ -21,7 +21,7 @@ spec:
             - name: shippingUrl
               value: http://$(SHIPPING_SERVICE_SERVICE_HOST)/shipping
             - name: productsUrl
-              value: http://"$(PRODUCTS_SERVICE_SERVICE_HOST)/products"
+              value: http://$(PRODUCTS_SERVICE_SERVICE_HOST)/products
 
           ports:
             - containerPort: 8080
