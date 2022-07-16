@@ -135,7 +135,7 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@github.com
 
-          echo "NEW_IMAGE_NAME=${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.IMAGE }}:${{ env.GITHUB_SHA }}" >> $GITHUB_ENV
+          echo "NEW_IMAGE_NAME=$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:$GITHUB_SHA >> $GITHUB_ENV
           sed -i '17s/.*/       ${{ env.NEW_IMAGE_NAME }}/' k8s/deploys/deploy-${{ inputs.service-name }}.yml
           
           git add .
