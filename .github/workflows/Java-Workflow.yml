@@ -136,7 +136,7 @@ jobs:
 
       - name: 'Update TAG in Deploy File'
         run: |
-          sed -i 's/${{ inputs.service-name }}-microservice:.*/orders-microservice:${{ github.sha }}/' k8s/deploys/deploy-${{ inputs.service-name }}.yml
+          sed -i 's/${{ inputs.service-name }}-microservice:.*/${{ inputs.service-name }}-microservice:${{ github.sha }}/' k8s/deploys/deploy-${{ inputs.service-name }}.yml
 
       - name: 'Start SSH'
         uses: webfactory/ssh-agent@v0.5.4
