@@ -37,6 +37,12 @@ Para pruebas de la aplicación ya desplegada utilizamos Postman. El objetivo de 
 
 ![ScreenShot](documento/../img/DevOps-Git-Flow.jpg)  
 
+#### Rules
+
+![ScreenShot](documento/../img/branch%20protection%20rules.jfif)  
+
+![ScreenShot](documento/../img/default%20branch.jfif)  
+
 ### Diagrama CICD
 
 ![ScreenShot](documento/../img/CI-CD.jpg)
