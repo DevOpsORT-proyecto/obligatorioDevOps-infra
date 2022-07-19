@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: shipping
-          image: southamerica-east1-docker.pkg.dev/proyectodevopsort/proyecto-devops-ort/shipping-microservice:61ca4b4b3030e8d1b18c0b02d0158e2f683ee291
+          image: southamerica-east1-docker.pkg.dev/proyectodevopsort/proyecto-devops-ort/shipping-microservice:ccd663b99e2dfdc7d2471651894e2305ad449ed1
           ports:
             - containerPort: 8080
   selector:
