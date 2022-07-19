@@ -14,7 +14,14 @@ on:
         required: true
       GCP_SERVICE_ACCOUNT:
         required: true
+      ACCESS_TOKEN:
+        required: true
 
+env:
+  PROJECT_ID: 'proyectodevopsort'
+  GAR_LOCATION: 'southamerica-east1'
+  REPOSITORY: 'proyecto-devops-ort'
+  IMAGE: ${{ inputs.service-name }}-microservice
 
 jobs:
 
@@ -76,17 +83,13 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=${{ inputs.sonar-project-key }}
 
-#GCP Artifact Registry #
+# GCP Artifact Registry #
 
   gcp_artifact:
     name: GCP Artifact Registry - ${{ inputs.service-name }}
     runs-on: ubuntu-latest
     needs: [sonarcloud]
-    env:
-      PROJECT_ID: 'proyectodevopsort'
-      GAR_LOCATION: 'southamerica-east1'
-      REPOSITORY: 'proyecto-devops-ort'
-      IMAGE: ${{ inputs.service-name }}-microservice
+
       
     steps:
       
@@ -112,12 +115,38 @@ jobs:
         run:
           docker build --tag "$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:$GITHUB_SHA" ${{ github.workspace }}
       
-      - name: 'Docker build latest'
-        run:
-          docker build --tag "$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:latest" ${{ github.workspace }}
-      
       - name: 'Docker push'
         run: docker push "$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:$GITHUB_SHA"
      
-      - name: 'Docker push latest'
-        run: docker push "$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:latest"
+# Update Infra Repo #
+
+  update_image_tags:
+
+    name: Update Argo Deploy Image Tag
+
+    runs-on: ubuntu-latest
+    needs: [gcp_artifact]
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          repository: DevOpsORT-proyecto/obligatorioDevOps-infra
+
+      - name: 'Update TAG in Deploy File'
+        run: |
+          sed -i 's/${{ inputs.service-name }}-microservice:.*/${{ inputs.service-name }}-microservice:${{ github.sha }}/' k8s/deploys/deploy-${{ inputs.service-name }}.yml
+
+      - name: 'Start SSH'
+        uses: webfactory/ssh-agent@v0.5.4
+        with:
+          ssh-private-key: ${{ secrets.ACCESS_TOKEN }}
+
+      - name: 'Push Change to Repo'
+        run: |
+          git config --global user.email "enzo.cesco@gmail.com"
+          git config --global user.name "ECesco"
+          git add .
+          git commit -m "automatic image tag update"
+          git push git@github.com:DevOpsORT-proyecto/obligatorioDevOps-infra.git develop
