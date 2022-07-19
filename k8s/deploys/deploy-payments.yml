@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: payments
-          image: southamerica-east1-docker.pkg.dev/proyectodevopsort/proyecto-devops-ort/payments-microservice:3b276223e227b4f67c553251ad4bc5e5cfd13c22
+          image: southamerica-east1-docker.pkg.dev/proyectodevopsort/proyecto-devops-ort/payments-microservice:6d3fc96b42aefd2032ec03847789cf45245f41d8
           ports:
             - containerPort: 8080
   selector:
