@@ -151,6 +151,7 @@ jobs:
         run: |
           git config --global user.email "enzo.cesco@gmail.com"
           git config --global user.name "ECesco"
+          git fetch
           git checkout ${{ github.ref_name }}
 
       - name: 'Update TAG in Deploy File'
