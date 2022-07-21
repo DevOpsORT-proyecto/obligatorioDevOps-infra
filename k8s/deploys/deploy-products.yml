@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: products
-          image: southamerica-east1-docker.pkg.dev/proyectodevopsort/proyecto-devops-ort/products-microservice:3b8bd6ac99c200a8cd69ed2efb912c8fccae7e91
+          image: southamerica-east1-docker.pkg.dev/proyectodevopsort/proyecto-devops-ort/products-microservice:3e9a02e2e4a78e63de1a6ca67dd328f208489375
           ports:
             - containerPort: 8080
   selector:
