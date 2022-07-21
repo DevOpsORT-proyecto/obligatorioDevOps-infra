@@ -65,9 +65,9 @@ Para gestionar IaC optamos por Terraform que nos permiten codificar la infraestr
 
 Como servicio cloud decidimos trabajar con el servicio de Google Cloud Platform (GCP) que brinda una cuenta de aprendizaje con 300 dólares de crédito para utilizar. Los recursos utilizados fueron:  
 
-Artifact Registry - nos proporciona una única ubicación para almacenar y administrar los paquetes y las imágenes de contenedores de Docker.  
+• Artifact Registry - nos proporciona una única ubicación para almacenar y administrar los paquetes y las imágenes de contenedores de Docker.  
 
-Google Kubernetes Engine (GKE) - como Cluster de Kubernetes. Esto nos ofrece múltiples ventajas y una de ellas es que las aplicaciones son independientes entre sí, por lo que el rendimiento de cada aplicación es mayor.  
+• Google Kubernetes Engine (GKE) - como Cluster de Kubernetes. Esto nos ofrece múltiples ventajas y una de ellas es que las aplicaciones son independientes entre sí, por lo que el rendimiento de cada aplicación es mayor.  
 
 Para el despliegue sobre GKE elegimos ArgoCD que funciona de forma declarativa.
 Luego de realizar una investigación y varias pruebas optamos por realizar la instalación de ArgoCD en nuestro Cluster de manera manual. Le decisión se tomo en primera instancia porque es muy sencillo realizar esta instalación de manera manual siguiendo la documentación del proveedor y en segundo lugar porque no encontramos una manera sencilla de realizar esto de manera automatizada. En la actualidad Terraform no posee un medio para aprovisionar esta instalación y si bien hay algunos módulos realizados por usuarios, la complejidad con la que nos encontramos no era un ahorro de tiempo comparado con la instalación manual.
