@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: orders
-          image: southamerica-east1-docker.pkg.dev/proyectodevopsort/proyecto-devops-ort/orders-microservice:eda37cd20269e15da10009a168ae753d8699220a
+          image: southamerica-east1-docker.pkg.dev/proyectodevopsort/proyecto-devops-ort/orders-microservice:075ba45471d2974b15cb742508607640fbcf41e5
           env:
             - name: paymentsUrl
               value: http://$(PAYMENTS_SERVICE_SERVICE_HOST)
